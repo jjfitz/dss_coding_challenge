@@ -8,9 +8,16 @@
 # Test Case: 3 + 5 + 6 + 9 = 23
 
 # Your Code Here:
+library(tidyverse)
 
+totsum <- 0
 
+for (i in 1:999) {
+  if(i %% 3 == 0 || i %% 5 == 0) {
+    totsum <- i + totsum
+  }
+}
 
+print(totsum)
 
-
-# Answer:
+# Answer: 233168

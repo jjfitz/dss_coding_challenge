@@ -24,6 +24,20 @@
 
 # Your Code Here:
 
+library(tidyverse)
+
+x <- read_delim("data/input_data_03.txt", delim = " ", col_names = FALSE)
+
+x %>%
+  mutate(summed_pair = (X1 + X2)) %>%
+  select(summed_pair)
 
 
 # Answer:
+
+# 1021981  992083  834657 1833883  943285 1726819  999061 1099221  225363 1430880 1508724
+
+
+
+
+

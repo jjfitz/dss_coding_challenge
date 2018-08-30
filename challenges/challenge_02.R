@@ -14,6 +14,11 @@
 # 1003 699 258
 
 # Your Code Here:
+library(tidyverse)
 
+x <- read_delim("data/input_data_02.txt", delim = " ", col_names = FALSE)
 
+sum(x$X1)
 # Answer:
+
+# 25784
