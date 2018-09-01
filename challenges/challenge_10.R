@@ -15,5 +15,24 @@
 
 # Your Code Here:
 
+fir <- 0
+sec <- 1
+ans <- 1
 
-# Answer:
+even_sum <- 0
+
+while (ans < 4000001) {
+  ans <- fir + sec
+  fir <- sec
+  sec <- ans
+  
+  if (ans %% 2 == 0) {
+    even_sum <- even_sum + ans
+  }
+  
+}
+
+print(even_sum)
+
+# Answer: 4613732
+

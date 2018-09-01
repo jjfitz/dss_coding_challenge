@@ -18,6 +18,49 @@
 # 20402225 340779 77855875 38507245
 
 # Your Code Here:
+library(tidyverse)
 
+x <- read_delim("data/input_data_08.txt", delim = " ", col_names = FALSE)
+
+for (i in x$X1) {
+  totsum <- 0
+  number <- unlist(str_split(i, ""))
+  for (j in 1:length(number)) {
+    totsum = (j * as.integer(number[j]) + totsum)
+    # print(j)
+  }
+  print(totsum)
+}
 
 # Answer:
+
+# [1] 28
+# [1] 165
+# [1] 26
+# [1] 35
+# [1] 78
+# [1] 7
+# [1] 131
+# [1] 223
+# [1] 155
+# [1] 0
+# [1] 80
+# [1] 184
+# [1] 166
+# [1] 167
+# [1] 111
+# [1] 24
+# [1] 25
+# [1] 206
+# [1] 85
+# [1] 139
+# [1] 44
+# [1] 19
+# [1] 23
+# [1] 13
+# [1] 73
+# [1] 17
+# [1] 90
+# [1] 128
+# [1] 227
+# [1] 149

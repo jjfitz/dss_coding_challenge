@@ -13,6 +13,47 @@
 # Bonus: Solve the problem without explicit iteration. (ie No For Loops)
 
 # Your Code Here:
+library(tidyverse)
+
+for (i in 1:30) {
+  num <- if_else(i %% 3 == 0 && i %% 5 == 0, "FizzBuzz",
+                 if_else(i %% 3 == 0, "Fizz", 
+                         if_else (i %% 5 == 0, "Buzz", as.character(i))))
+  print(num)
+}
 
 
 # Answer:
+
+# [1] "1"
+# [1] "2"
+# [1] "Fizz"
+# [1] "4"
+# [1] "Buzz"
+# [1] "Fizz"
+# [1] "7"
+# [1] "8"
+# [1] "Fizz"
+# [1] "Buzz"
+# [1] "11"
+# [1] "Fizz"
+# [1] "13"
+# [1] "14"
+# [1] "FizzBuzz"
+# [1] "16"
+# [1] "17"
+# [1] "Fizz"
+# [1] "19"
+# [1] "Buzz"
+# [1] "Fizz"
+# [1] "22"
+# [1] "23"
+# [1] "Fizz"
+# [1] "Buzz"
+# [1] "26"
+# [1] "Fizz"
+# [1] "28"
+# [1] "29"
+# [1] "FizzBuzz"
+
+

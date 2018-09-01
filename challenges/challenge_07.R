@@ -25,6 +25,31 @@
 
 # Your Code Here:
 
+library(tidyverse)
 
+lines <- file("data/input_data_07.txt", open = "r")
+
+while (length(line <- readLines(lines, n = 1, warn = FALSE)) > 0) {
+  count <- str_count(line, pattern = "[aeiouy]")
+  print(count)
+} 
+
+close(lines)
 
 # Answer:
+
+# [1] 10
+# [1] 14
+# [1] 11
+# [1] 16
+# [1] 9
+# [1] 10
+# [1] 7
+# [1] 10
+# [1] 10
+# [1] 10
+# [1] 13
+# [1] 9
+# [1] 14
+# [1] 7
+# [1] 12
