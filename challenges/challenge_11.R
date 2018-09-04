@@ -34,6 +34,49 @@
 
 
 # Your Code Here:
+library(tidyverse)
 
+x <- vector()
+
+j <- 1
+
+lines <- file("data/input_data_11.txt", open = "r")
+
+while (length(line <- readLines(lines, n = 1, warn = FALSE)) > 0) {
+  line <- gsub('[,-]', '', line)
+  line <- gsub(' ', '', line)
+  line <- tolower(line)
+  # print(line)
+  line <- unlist(str_split(line, ""))
+  for (i in 1:length(line)) {
+    if (line[i] != line[length(line)-i+1]) {
+      print(i)
+      x[j] <- FALSE
+      j <- j + 1
+      break()
+    }
+  }
+  print("True")
+  x[j] <- TRUE
+  j <- j + 1
+} 
+
+close(lines)
+
+print(x)
+
+# line <- "hello"
+# line <- unlist(str_split(line, ""))
+# line[1]
+# line[length(line)-2+1]
 
 # Answer:
+
+# [1]  TRUE  TRUE  TRUE FALSE  TRUE FALSE  TRUE  TRUE  TRUE  TRUE  TRUE FALSE  TRUE FALSE
+# [15]  TRUE FALSE  TRUE  TRUE FALSE  TRUE  TRUE  TRUE  TRUE FALSE  TRUE FALSE  TRUE FALSE
+# [29]  TRUE
+
+
+
+
+

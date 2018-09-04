@@ -44,5 +44,19 @@
 #...
 
 # Your Code Here:
+library(tidyverse)
+
+x <- read_delim("data/input_data_12.txt", delim = ", ")# col_names = FALSE)
+
+x %>%
+  mutate(one = 1) -> x
+
+x <- as.matrix(x)
+
+
 
 # Answer:
+
+
+
+

@@ -32,5 +32,24 @@
 # ...
 
 # Your Code Here:
+library(tidyverse)
+
+x <- read_delim("data/input_data_14.txt", delim = ",")# col_names = FALSE)
+
+x %>%
+  mutate(seven = count <- str_count(numbers, pattern = "[7]")) %>%
+  group_by(acct_names) %>%
+  summarise(sum(seven))
 
 # Answer:
+
+# 1 Craig               102
+# 2 John                 63
+# 3 Kerry                69
+# 4 Mike                 62
+# 5 Nyalla               69
+# 6 Sarah                68
+# 
+# Craig seems to be the fraudster going off of the number 7. The other accountants seem to
+# use the number 7 about the same, but Craig uses it way more often.
+
