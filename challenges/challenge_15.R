@@ -14,5 +14,47 @@
 # Input Data: https://pubs.niaaa.nih.gov/publications/Surveillance95/tab1_10.htm
 
 # Your Code Here:
+library(tidyverse)
+library(lubridate)
+library(rvest)
+
+tab <- read_html('https://pubs.niaaa.nih.gov/publications/Surveillance95/tab1_10.htm')
+
+tab <- html_table(html_nodes(tab, "table")[[1]])
+
+# getting the data
+tab %<>%
+  filter(Year != "Prohibition") %>%
+  mutate(consumption = `All beverages`) %>%
+  select(-`All beverages`) %>%
+  as.tibble() %>%
+  gather(type, consumption, -Year)
+
+# making the graph
+tab %>%
+  # group_by(Year, type) %>%
+  ggplot(aes(Year, as.numeric(consumption), color = type)) +
+  geom_point() +
+  geom_line(aes(color = type))
 
 # Answer:
+
+# # A tibble: 352 x 3
+# Year  type  consumption
+# <chr> <chr> <chr>      
+#   1 2010  Beer  1.13       
+# 2 2009  Beer  1.17       
+# 3 2008  Beer  1.20       
+# 4 2007  Beer  1.21       
+# 5 2006  Beer  1.20       
+# 6 2005  Beer  1.19       
+# 7 2004  Beer  1.21       
+# 8 2003  Beer  1.21       
+# 9 2002  Beer  1.23       
+# 10 2001  Beer  1.23       
+# # ... with 342 more rows
+
+
+
+
+

@@ -47,4 +47,31 @@
 
 # Your Code Here:
 
+id <- read_csv("../data/input_data_17.txt")
+
+proportion <- function(data, prop) {
+  prop <- substitute(prop)
+  data %>%
+    group_by(eval(prop)) %>%
+    summarise(n = n(),
+              prop_n = n / nrow(data)) %>%
+    arrange(desc(n))
+}
+
+id %>% 
+  proportion(superhero)
+
 # Answer: 
+
+# A tibble: 6 x 3
+# `eval(prop)`        n prop_n
+# <chr>           <int>  <dbl>
+#   1 Captain America  4947 0.495 
+# 2 Dr. Strange      1495 0.150 
+# 3 Iron Man         1020 0.102 
+# 4 Thor             1017 0.102 
+# 5 Hulk             1006 0.101 
+# 6 Black Widow       515 0.0515
+
+
+

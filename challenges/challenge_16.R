@@ -15,5 +15,31 @@
 # Input Data: "data/input_data_16.pdf"
 
 # Your Code Here:
+library(tidyverse)
+library(pdftools)
+library(tabulizer)
+library(stringr)
+
+x <- pdf_text("data/input_data_16.pdf")
+
+y <- paste0(x, collapse = " ")
+
+text <- strsplit(y, "\n")
+
+text2 <- strsplit(x, "\n")
+
+text <- text[[1]][3:34]
+
+y <- trimws(text, which = "both")
+
+str_split(y, " ")
+
+as_data_frame(text)
+
+x <- read_delim(text, delim = " ")# col_names = FALSE)
+
+
+
+# out <- extract_tables("data/input_data_16.pdf")
 
 # Answer: 
